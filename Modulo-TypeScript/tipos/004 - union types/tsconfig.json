@@ -1,0 +1,19 @@
+// tsconfig.json é bom para configurar as opções de compilação do TypeScript. 
+// Ele permite que você defina as regras e comportamentos do compilador, 
+// como quais arquivos incluir ou excluir, 
+// quais opções de verificação de tipo usar, e muito mais. 
+// Com um tsconfig.json bem configurado, você pode garantir que seu código TypeScript seja compilado corretamente 
+// e que as melhores práticas sejam seguidas.
+
+
+// {
+//   "compilerOptions": {
+//     "target": "es6", // Define a versão do JavaScript para a qual o TypeScript será compilado
+//     "module": "commonjs", // Define o sistema de módulos a ser usado
+//     "strict": true, // Habilita todas as verificações de tipo estritas
+//     "esModuleInterop": true, // Permite a interoperabilidade entre módulos CommonJS e ES Modules
+//     "forceConsistentCasingInFileNames": true // Garante que os nomes dos arquivos sejam consistentes em relação ao uso de maiúsculas e minúsculas
+//   },
+//   "include": ["./src/**/*"], // Especifica os arquivos a serem incluídos na compilação
+//   "exclude": ["node_modules"] // Especifica os arquivos a serem excluídos da compilação
+// }
