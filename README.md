@@ -6,13 +6,17 @@ Este é um registro vivo da minha jornada por um curso extremamente robusto e co
 
 ---
 
-![Imagem que mostra o curso  de Angular na Plataforma da Udemy com as descrições do curso](assets/images/curso-de-angular-capa-descritiva.png)
+![Imagem que mostra o curso de Angular na Plataforma da Udemy com as descrições do curso](assets/images/curso-de-angular-capa-descritiva.png)
 
 ## 🎥 Acompanhe a Evolução!
 
 Como este é um repositório de formação contínua, os projetos estão sendo desenvolvidos e aprimorados módulo a módulo. 
 
 > _Repositório criado para fins de estudo e documentação do progresso ao longo das 64 seções e 453 aulas da formação._
+
+---
+
+## 🚀 Meu Mapa de Conhecimento Dinâmico
 
 ---
 

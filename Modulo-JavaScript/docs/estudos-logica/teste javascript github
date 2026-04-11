@@ -1,0 +1,186 @@
+// quero criar uma lógica que mapeia todo o conhecimento desse curso
+// a ideia é ter um grafico de conhecimento que vai se atualizando e tempo real e saiba ler o tipo de linguagem de cada conhecimento e o tipo de conhecimento
+
+// Para que isso funcione de verdade e não seja apenas um cálculo estático, precisamos de uma lógica que escaneie a estrutura de pastas (Modulo-JavaScript, Modulo-TypeScript, etc.) e atribua pesos para cada arquivo finalizado.
+
+// para isso eu preciso criar uma estrutura de dados que vai armazenar todo esse conhecimento
+// e depois criar uma função que vai atualizar esse grafico de conhecimento em tempo real
+// para criar a estrutura de dados, eu vou usar um objeto que vai armazenar o nome do conhecimento, o tipo de conhecimento e o tipo de linguagem
+// por exemplo, eu posso ter um objeto chamado "javascript" que vai armazenar o nome do conhecimento, o tipo de conhecimento e o tipo de linguagem
+// e depois eu posso criar uma função que vai atualizar esse grafico de conhecimento em tempo real, usando a estrutura de dados que eu criei
+// preciso que cada pasta e cada arquivo nesse projeto seja ,apeado para que os conhecimentos tenha uma porcentagem exata de conhecimento adquirido
+// para isso, eu posso criar uma função que vai calcular a porcentagem de conhecimento adquirido com base no número de arquivos e pastas mapeados
+// e depois eu posso usar essa porcentagem para atualizar o grafico de conhecimento em tempo real
+// para criar o grafico de conhecimento, eu posso usar uma biblioteca de gráficos como o Chart.js ou o D3.js
+// e depois eu posso usar a função que calcula a porcentagem de conhecimento adquirido para atualizar o grafico em tempo real
+// para criar a estrutura de dados, eu posso usar um objeto como o seguinte:
+
+const courseMap = {
+  "Modulo-JavaScript": {
+    language: "JavaScript",
+    weight: 0.3, // 30% do curso total
+    topics: ["DOM", "manipulando-valores", "inner-HTML-vs-createElement"],
+    completed: []
+  },
+  "Modulo-TypeScript": {
+    language: "TypeScript",
+    weight: 0.4, // 40% do curso total
+    topics: ["tipagem", "interfaces", "generics"],
+    completed: []
+  },
+  "Formação-Angular": {
+    language: "Angular",
+    weight: 0.3,
+    topics: ["componentes", "reactive-forms", "directives"],
+    completed: []
+  }
+};
+
+// Em vez de apenas um objeto plano, vamos criar uma estrutura que entenda a hierarquia do seu curso.
+// Para que a porcentagem seja exata, a função deve calcular:
+// O progresso dentro de cada módulo.
+// O peso desse módulo no gráfico geral.
+
+function calculateKnowledge() {
+  let totalGlobalProgress = 0;
+
+  const stats = Object.keys(courseMap).map(key => {
+    const module = courseMap[key];
+    const progress = (module.completed.length / module.topics.length) * 100;
+    
+    // Contribuição deste módulo para o gráfico de 0 a 100
+    totalGlobalProgress += (progress * module.weight);
+
+    return {
+      label: module.language,
+      value: progress.toFixed(2)
+    };
+  });
+
+  return { stats, totalGlobalProgress };
+}
+
+// Exemplo de configuração para o Chart.js com suas cores
+const config = {
+  type: 'radar',
+  data: {
+    labels: ['JavaScript', 'TypeScript', 'Angular', 'HTML', 'CSS', 'Figma'],
+    datasets: [{
+      label: 'Nível de Domínio',
+      data: [80, 77, 45, 90, 85, 60], // Valores vindo da sua função
+      backgroundColor: 'rgba(248, 193, 209, 0.2)', // Rosa claro transparente
+      borderColor: '#F8C1D1', // Rosa claro sólido
+      pointBackgroundColor: '#F8C1D1',
+    }]
+  },
+  options: {
+    scales: {
+      r: {
+        angleLines: { color: '#2E2F37' },
+        grid: { color: '#2E2F37' },
+        pointLabels: { color: '#ffffff' },
+        ticks: { display: false }
+      }
+    }
+  }
+};
+
+// O Script Node.js (scanner.js): Este script vai percorrer seus módulos e verificar a presença do arquivo gatilho.
+
+const fs = require('fs');
+
+const path = require('path');
+
+
+
+// Configuração dos módulos que você quer mapear
+
+const modules = [
+
+  { name: 'Modulo-JavaScript', weight: 0.3 },
+
+  { name: 'Modulo-TypeScript', weight: 0.4 },
+
+  { name: 'Modulo-Angular', weight: 0.3 }
+
+];
+
+
+
+function scanProgress() {
+
+  const report = {};
+
+
+
+  modules.forEach(mod => {
+
+    const modPath = path.join(__dirname, mod.name);
+
+    
+
+    if (fs.existsSync(modPath)) {
+
+      // Lê todas as subpastas (os tópicos/aulas)
+
+      const topics = fs.readdirSync(modPath).filter(file => 
+
+        fs.statSync(path.join(modPath, file)).isDirectory()
+
+      );
+
+
+
+      let completedCount = 0;
+
+
+
+      topics.forEach(topic => {
+
+        const markerPath = path.join(modPath, topic, 'exercicio-concluido.md');
+
+        if (fs.existsSync(markerPath)) {
+
+          completedCount++;
+
+        }
+
+      });
+
+
+
+      const percentage = topics.length > 0 ? (completedCount / topics.length) * 100 : 0;
+
+      
+
+      report[mod.name] = {
+
+        name: mod.name.replace('Modulo-', ''),
+
+        percentage: parseFloat(percentage.toFixed(2)),
+
+        totalTopics: topics.length,
+
+        completedTopics: completedCount
+
+      };
+
+    }
+
+  });
+
+
+
+  // Salva o resultado em um JSON para o seu gráfico ler
+
+  fs.writeFileSync('progress-data.json', JSON.stringify(report, null, 2));
+
+  console.log('✅ Progresso mapeado com sucesso em progress-data.json');
+
+}
+
+
+
+scanProgress();
+
+// O Gráfico no README.md: Você pode usar a URL do QuickChart para gerar um gráfico dinâmico baseado nos dados do JSON gerado pelo scanner.js. O script pode ler o JSON, calcular as porcentagens e atualizar a imagem do gráfico no README.md automaticamente.
