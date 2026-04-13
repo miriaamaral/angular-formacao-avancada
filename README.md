@@ -1,86 +1,67 @@
-# ✨ Miriã Amaral - Formação Angular: Do Básico ao Avançado 🌐💻
+# ✨ Miriã Amaral - Formação Angular: Dashboard de Progresso 🌐💻
 
-E aí, meu 🐙! Este repositório contém minhas anotações, projetos e exercícios desenvolvidos durante o **Curso de Angular 2 (v17+) Typescript do Básico ao Avançado**. 
-
-Este é um registro vivo da minha jornada por um curso extremamente robusto e completo (mais de **44 horas de conteúdo**). O foco aqui não é apenas aprender o framework Angular, mas construir uma base sólida e inabalável em **JavaScript e TypeScript** antes de mergulhar no desenvolvimento de SPAs (Single Page Applications) modernas e na manutenção de sistemas legados.
-
----
-
-![Imagem que mostra o curso de Angular na Plataforma da Udemy com as descrições do curso](assets/images/curso-de-angular-capa-descritiva.png)
-
-## 🎥 Acompanhe a Evolução!
-
-Como este é um repositório de formação contínua, os projetos estão sendo desenvolvidos e aprimorados módulo a módulo. 
-
-> _Repositório criado para fins de estudo e documentação do progresso ao longo das 64 seções e 453 aulas da formação._
+<p align="center">
+  <img src="assets/images/curso-de-angular-capa-descritiva.png" width="100%" />
+</p>
 
 ---
 
-## 🚀 Meu Mapa de Conhecimento Dinâmico
+## 📊 Dashboard de Progresso
+
+<!--PROGRESS_BADGES_START-->
+<p align="center">
+  <img src="https://img.shields.io/badge/JS-100%25-ff69b4?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/TS-100%25-ff69b4?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Angular-0%25-ff69b4?style=for-the-badge" />
+</p>
+<!--PROGRESS_BADGES_END-->
 
 ---
 
-## 🛠 Tecnologias e Conceitos Aprendidos
+## 🚀 Visão Geral do Aprendizado
 
-Para garantir uma fundação forte antes de utilizar as ferramentas do framework, a stack de estudos abrange:
-
-* **JavaScript (Vanilla & ES6+):** Manipulação avançada do DOM, Closures, Arrow Functions, Destructuring, Spread Operator e métodos de Array (`map`, `filter`, `reduce`).
-* **TypeScript:** Tipagem estática, Classes, Interfaces e Namespaces para um código robusto e escalável.
-* **Angular Moderno (v17+):** Standalone Components, novo Control Flow, Deferrable Views e Signals (Reatividade).
-* **Angular Legado (v13-v15):** Arquitetura baseada em `NgModules`, essencial para manutenção de sistemas no mercado de trabalho.
-* **Ecossistema:** RxJS (Observables), HTTP Requests, Rotas/Guards e Formulários (Template Driven & Reactive Forms).
-* **Estilização e Layout:** Sass, Flexbox e Bootstrap.
-
----
-
-## 📚 Estrutura da Formação (Meu Progresso)
-
-Aqui detalho os módulos do curso e o meu status em cada um deles:
-
-### 🟨 1. Base Sólida: JavaScript & DOM (✅ Concluído)
-Foco em entender a linguagem a fundo e como manipular o Document Object Model (DOM) sem bibliotecas.
-* **Fundamentos:** Tipos Primitivos, Variáveis, Escopo, Condicionais e Funções (IIFE, Strict Mode, Construtoras).
-* **Estruturas de Dados:** Objetos a fundo (clonagem, métodos) e Arrays a fundo (loops, matrizes, iteradores).
-* **DOM na Prática:** Seleção, manipulação de valores (`textContent`, `innerHTML`), estilização (`classList`), navegação entre nós, Eventos (Delegation, `preventDefault`) e Formulários.
-
-### 🟦 2. Tipagem Forte: TypeScript (⏳ Em andamento)
-Adoção de tipagem estática e orientação a objetos para garantir um código mais previsível.
-* Introdução e Tipos.
-* Classes e Interfaces.
-* Namespaces e Compilador.
-
-### 🟥 3. O Framework: Angular Moderno v17+ (🔜 Em Breve)
-Imersão nas features mais recentes do Angular.
-* Componentes, Estilos CSS e Templates.
-* Control Flow e Deferrable Views.
-* Signals, Pipes, Services e Guards.
-* Universal / SSR / SSG e Otimização.
-
-### 🏛️ 4. Manutenção de Sistemas: Angular Legado v13-v15 (🔜 Em Breve)
-Módulos essenciais para lidar com bases de código mais antigas e migrações.
-* Componentes Legados, Diretivas e `NgModule`.
-* Comunicação, Roteamento Legado e Testes Unitários.
+<p align="center">
+<!--PROGRESS_CHART_START-->
+<p align="center">
+  <img src="https://quickchart.io/chart?bkg=transparent&c=%7B%22type%22%3A%22bar%22%2C%22data%22%3A%7B%22labels%22%3A%5B%22JS%22%2C%22TS%22%2C%22Angular%22%5D%2C%22datasets%22%3A%5B%7B%22data%22%3A%5B100%2C100%2C0%5D%2C%22backgroundColor%22%3A%22%23F8C1D1%22%2C%22borderRadius%22%3A8%2C%22barThickness%22%3A26%7D%5D%7D%2C%22options%22%3A%7B%22indexAxis%22%3A%22y%22%2C%22plugins%22%3A%7B%22legend%22%3A%7B%22display%22%3Afalse%7D%7D%2C%22scales%22%3A%7B%22x%22%3A%7B%22min%22%3A0%2C%22max%22%3A100%2C%22ticks%22%3A%7B%22color%22%3A%22%23999%22%7D%7D%2C%22y%22%3A%7B%22ticks%22%3A%7B%22color%22%3A%22%23333%22%7D%7D%7D%7D%7D" alt="Gráfico de Conhecimento" width="65%" />
+</p>
+<!--PROGRESS_CHART_END-->
+</p>
 
 ---
 
-## 📂 Projetos Práticos da Formação
+### 🎯 Sobre este projeto
 
-Durante o curso, a teoria é aplicada na prática. Abaixo adicionarei os projetos (que forem sendo concluídos)!
+Este repositório é um sistema automatizado de acompanhamento de progresso de estudos baseado em:
 
-<br>
+- 📦 Estrutura de módulos organizados por tecnologia  
+- 📁 Detecção de exercícios concluídos via arquivos locais  
+- 🔁 Atualização automática via Node.js (`scanner.js`)  
+- 📊 Dashboard visual gerado dinamicamente  
+
+---
+
+## 🧠 Estrutura da Formação
+
+### 🟨 JavaScript & DOM
+Base sólida da linguagem, manipulação do DOM e fundamentos avançados.
+
+### 🟦 TypeScript
+Tipagem estática, orientação a objetos e escalabilidade.
+
+### 🟥 Angular
+Framework moderno com componentes, reatividade e arquitetura SPA.
 
 ---
 
 ## ✉️ Contato
 
-Vamos nos conectar e construir algo incrível juntos!
-
-* **LinkedIn:** [Miriã Amaral](https://www.linkedin.com/in/miriaamaralcs)
-* **GitHub:** [miriaamaral](https://github.com/miriaamaral)
-* **Email:** [miriaamaralcs@gmail.com](mailto:miriaamaralcs@gmail.com)
-* **Discord:** [miriaamaralcustodiosantos](https://discord.com/channels/miriaamaralcustodiosantos)
-* **Plataforma de Estudos (UDEMY):** [Curso na Udemy](https://www.udemy.com/course/curso-de-angular/)
+- LinkedIn: [Miriã Amaral](https://www.linkedin.com/in/miriaamaralcs)  
+- GitHub: [miriaamaral](https://github.com/miriaamaral)  
+- Email: [miriaamaralcs@gmail.com](mailto:miriaamaralcs@gmail.com)  
 
 ---
 
-<p align="center">Feito com ❤️ por Miriã Amaral</p>
+<p align="center">
+Feito com ❤️ por Miriã Amaral
+</p>

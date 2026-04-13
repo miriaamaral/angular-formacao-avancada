@@ -1,54 +1,133 @@
 const fs = require('fs');
 const path = require('path');
 
-// 1. Configuração dos módulos (ajuste os nomes conforme suas pastas)
+console.log("🚀 Iniciando scanner (versão blindada)...");
+
+// 📦 Módulos
 const modules = [
   { name: 'Modulo-JavaScript', label: 'JS' },
   { name: 'Modulo-TypeScript', label: 'TS' },
   { name: 'Modulo-Angular', label: 'Angular' }
 ];
 
-function updateReadme() {
-  const results = modules.map(mod => {
-    const modPath = path.join(__dirname, mod.name);
-    if (!fs.existsSync(modPath)) return { label: mod.label, percent: 0 };
+// 🚫 pastas ignoradas
+const IGNORED = new Set(['assets', '.github', 'node_modules']);
 
-// Pega todas as subpastas do módulo
-    const topics = fs.readdirSync(modPath).filter(file => 
-      fs.statSync(path.join(modPath, file)).isDirectory()
-    );
+// 🔍 pega apenas pastas finais reais (leaf nodes)
+function getLeafDirs(dir) {
+  if (!fs.existsSync(dir)) return [];
 
-    // Conta quantas têm o arquivo marcador
-    const completed = topics.filter(topic => 
-      fs.existsSync(path.join(modPath, topic, 'exercicio-concluido.md'))
-    ).length;
+  const entries = fs.readdirSync(dir);
 
-    const percent = topics.length > 0 ? Math.round((completed / topics.length) * 100) : 0;
-    return { label: mod.label, percent };
+  const dirs = entries
+    .map(e => path.join(dir, e))
+    .filter(p => {
+      if (!fs.existsSync(p)) return false;
+      if (!fs.statSync(p).isDirectory()) return false;
+      if (IGNORED.has(path.basename(p))) return false;
+      return true;
+    });
+
+  if (dirs.length === 0) {
+    return [dir];
+  }
+
+  let result = [];
+  dirs.forEach(d => {
+    result = result.concat(getLeafDirs(d));
   });
 
-  // 2. Formata os dados para a URL do QuickChart
-  const labels = results.map(r => r.label);
-  const data = results.map(r => r.percent);
-
-const chartUrl = `https://quickchart.io/chart?bkg=08080C&c={type:'radar',data:{labels:['${labels.join("','")}'],datasets:[{label:'Progresso %',data:[${data.join(',')}],backgroundColor:'rgba(248,193,209,0.2)',borderColor:'%23F8C1D1',pointBackgroundColor:'%23F8C1D1'}]},options:{scales:{r:{suggestedMin:0,suggestedMax:100,angleLines:{color:'rgba(255,255,255,0.1)'},grid:{color:'rgba(255,255,255,0.1)'},pointLabels:{fontColor:'%23ffffff',fontSize:14},ticks:{display:false}}}}}`;
- 
-// ... (mantenha o início igual)
-
-// 3. Lê o README e substitui a linha do gráfico
-let readmeContent = fs.readFileSync('README.md', 'utf8');
-
-// ESTE REGEX É O SEGREDO: Ele procura apenas o que está entre as tags de comentário
-const regex = /[\s\S]*/;
-
-const newChartTag = `\n<p align="center">\n  <img src="${chartUrl}" alt="Gráfico de Conhecimento" />\n</p>\n`;
-
-if (regex.test(readmeContent)) {
-  readmeContent = readmeContent.replace(regex, newChartTag);
-  fs.writeFileSync('README.md', readmeContent);
-  console.log('✅ README.md atualizado com novo gráfico!');
-} else {
-  // Se não encontrar as tags, o script avisa você em vez de estragar o arquivo
-  console.log('⚠️ Erro: As tags não foram encontradas no README.md');
+  return result;
 }
+
+// 📊 cálculo de progresso
+const results = modules.map(mod => {
+  const modPath = path.join(__dirname, mod.name);
+
+  if (!fs.existsSync(modPath)) {
+    return { label: mod.label, percent: 0 };
+  }
+
+  const leafDirs = getLeafDirs(modPath);
+
+  const completed = leafDirs.filter(dir =>
+    fs.existsSync(path.join(dir, 'exercicio-concluido.md'))
+  ).length;
+
+  const percent = leafDirs.length
+    ? Math.round((completed / leafDirs.length) * 100)
+    : 0;
+
+  return { label: mod.label, percent };
+});
+
+// 📊 dados
+const labels = results.map(r => r.label);
+const data = results.map(r => r.percent);
+
+// 🎨 gráfico estável (SEM quebra de URL)
+const chartConfig = {
+  type: 'bar',
+  data: {
+    labels,
+    datasets: [{
+      data,
+      backgroundColor: '#F8C1D1',
+      borderRadius: 8,
+      barThickness: 26
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { min: 0, max: 100, ticks: { color: '#999' } },
+      y: { ticks: { color: '#333' } }
+    }
+  }
+};
+
+const chartUrl =
+  `https://quickchart.io/chart?bkg=transparent&c=${encodeURIComponent(JSON.stringify(chartConfig))}`;
+
+// 📄 atualizar README (SEGURO)
+try {
+  const readmePath = path.join(__dirname, 'README.md');
+  let content = fs.readFileSync(readmePath, 'utf8');
+
+  // 🔒 regex seguros (NUNCA quebram README)
+    const badgeRegex =
+  /(<!--PROGRESS_BADGES_START-->)[\s\S]*?(<!--PROGRESS_BADGES_END-->)/;
+
+// 🔥 BADGES FIXOS (100% estáveis no GitHub)
+const badgesHTML = `
+<p align="center">
+  <img src="https://img.shields.io/badge/JS-${results[0].percent}%25-ff69b4?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/TS-${results[1].percent}%25-ff69b4?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Angular-${results[2].percent}%25-ff69b4?style=for-the-badge" />
+</p>
+`;
+
+content = content.replace(badgeRegex, `$1${badgesHTML}$2`);
+
+  const chartRegex =
+    /(<!--PROGRESS_CHART_START-->)[\s\S]*?(<!--PROGRESS_CHART_END-->)/;
+
+  // 📊 gráfico
+  const newChart = `
+<p align="center">
+  <img src="${chartUrl}" alt="Gráfico de Conhecimento" width="65%" />
+</p>
+`;
+
+  content = content.replace(chartRegex, `$1${newChart}$2`);
+
+
+  fs.writeFileSync(readmePath, content);
+
+  console.log('✅ README atualizado com segurança total');
+  console.log('📊 Progresso:', results);
+
+} catch (err) {
+  console.log('❌ Erro:', err.message);
 }
