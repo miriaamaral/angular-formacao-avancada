@@ -17,6 +17,7 @@ const mapa = JSON.parse(fs.readFileSync(MAP_PATH, 'utf8'));
 
 // 🧠 HELPERS
 function normalizar(texto) {
+  if (!texto) return '';
   return texto
     .toLowerCase()
     .normalize('NFD')
@@ -24,28 +25,65 @@ function normalizar(texto) {
     .replace(/[^a-z0-9]/g, '');
 }
 
+// 🔍 busca direta (rápida)
 function encontrarPasta(basePath, nomeAlvo) {
   if (!fs.existsSync(basePath)) return null;
 
   const alvo = normalizar(nomeAlvo);
 
-  const itens = fs.readdirSync(basePath, { withFileTypes: true });
+  let itens;
+  try {
+    itens = fs.readdirSync(basePath, { withFileTypes: true });
+  } catch {
+    return null;
+  }
 
   for (const item of itens) {
     if (!item.isDirectory()) continue;
 
-    const nome = item.name;
-    const caminho = path.join(basePath, nome);
+    const nomeNormalizado = normalizar(item.name);
 
-    const nomeNormalizado = normalizar(nome);
-
-    // match flexível
     if (nomeNormalizado.includes(alvo.slice(0, 10))) {
-      return caminho;
+      return path.join(basePath, item.name);
     }
   }
 
   return null;
+}
+
+// 🔥 fallback recursivo (só usa se não achar direto)
+function encontrarPastaProfunda(basePath, nomeAlvo) {
+  const alvo = normalizar(nomeAlvo);
+
+  function buscar(dir) {
+    let itens;
+    try {
+      itens = fs.readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return null;
+    }
+
+    for (const item of itens) {
+      if (!item.isDirectory()) continue;
+
+      // ignora lixo
+      if (['node_modules', '.git', 'dist'].includes(item.name)) continue;
+
+      const caminho = path.join(dir, item.name);
+      const nomeNormalizado = normalizar(item.name);
+
+      if (nomeNormalizado.includes(alvo.slice(0, 10))) {
+        return caminho;
+      }
+
+      const sub = buscar(caminho);
+      if (sub) return sub;
+    }
+
+    return null;
+  }
+
+  return buscar(basePath);
 }
 
 // 🌍 ESTADO GLOBAL
@@ -53,6 +91,88 @@ let totalAulas = 0;
 let concluidas = 0;
 let tempoTotal = 0;
 let tempoFeito = 0;
+
+// 🧠 🚀 PROCESSAMENTO
+function processarAulas(aulas, pastaBase) {
+  let total = 0;
+  let feitas = 0;
+  let tempo = 0;
+  let tempoDone = 0;
+
+  aulas.forEach(item => {
+
+    // 🔁 SUBSEÇÃO
+    if (item.aulas && Array.isArray(item.aulas)) {
+      const pastaSub =
+        encontrarPasta(pastaBase, item.secao) ||
+        encontrarPastaProfunda(pastaBase, item.secao) ||
+        pastaBase;
+
+      const sub = processarAulas(item.aulas, pastaSub);
+
+      total += sub.total;
+      feitas += sub.feitas;
+      tempo += sub.tempo;
+      tempoDone += sub.tempoDone;
+
+      return;
+    }
+
+    // 🧠 AULA NORMAL
+    if (!item.nome) return;
+
+    // 🧪 DEBUG
+    let debugInfo = {
+    aula: item.nome,
+    encontrada: false,
+    caminho: null,
+    arquivo: false
+    };
+
+    total++;
+    totalAulas++;
+
+    if (item.tempo) {
+      tempoTotal += item.tempo;
+      tempo += item.tempo;
+    }
+
+    let concluida = false;
+
+    // 🔍 tenta rápido primeiro, depois profundo
+    const pastaAula =
+      encontrarPasta(pastaBase, item.nome) ||
+      encontrarPastaProfunda(pastaBase, item.nome);
+
+    if (pastaAula) {
+  debugInfo.encontrada = true;
+  debugInfo.caminho = pastaAula;
+
+  const arquivo = path.join(pastaAula, 'exercicio-concluido.md');
+
+  if (fs.existsSync(arquivo)) {
+    concluida = true;
+    debugInfo.arquivo = true;
+  }
+}
+
+    if (concluida) {
+      feitas++;
+      concluidas++;
+
+      if (item.tempo) {
+        tempoFeito += item.tempo;
+        tempoDone += item.tempo;
+      }
+    }
+
+    if (!concluida) {
+    console.log('❌ NÃO CONCLUÍDA:', debugInfo);
+  }
+  });
+
+  return { total, feitas, tempo, tempoDone };
+}
 
 // 📊 PROCESSAMENTO
 const resultadosModulos = Object.entries(mapa).map(([nomeModulo, dadosModulo]) => {
@@ -74,52 +194,21 @@ const resultadosModulos = Object.entries(mapa).map(([nomeModulo, dadosModulo]) =
 
   dadosModulo.sections.forEach(secao => {
 
-    let totalSecao = 0;
-    let concluidasSecao = 0;
+    const pastaSecao =
+      encontrarPasta(caminhoModulo, secao.secao) ||
+      encontrarPastaProfunda(caminhoModulo, secao.secao) ||
+      caminhoModulo;
 
-    // 🔎 encontra pasta da seção
-    const pastaSecao = encontrarPasta(caminhoModulo, secao.secao);
+    const resultado = processarAulas(secao.aulas, pastaSecao);
 
-    secao.aulas.forEach(aula => {
+    totalModulo += resultado.total;
+    concluidasModulo += resultado.feitas;
 
-      totalAulas++;
-      totalModulo++;
-      totalSecao++;
-
-      if (aula.tempo) tempoTotal += aula.tempo;
-
-      let concluida = false;
-
-      if (pastaSecao) {
-        // 🔎 encontra pasta da aula dentro da seção
-        const pastaAula = encontrarPasta(pastaSecao, aula.nome);
-
-        if (pastaAula) {
-          // ✅ dupla checagem
-          const arquivo = path.join(pastaAula, 'exercicio-concluido.md');
-
-          if (fs.existsSync(arquivo) || pastaAula) {
-            concluida = true;
-          }
-        }
-      }
-
-      if (concluida) {
-        concluidas++;
-        concluidasModulo++;
-        concluidasSecao++;
-
-        if (aula.tempo) tempoFeito += aula.tempo;
-      }
-
-    });
-
-    const percentualSecao = totalSecao
-      ? Math.round((concluidasSecao / totalSecao) * 100)
+    const percentualSecao = resultado.total
+      ? Math.round((resultado.feitas / resultado.total) * 100)
       : 0;
 
-    console.log(`   📘 ${secao.secao}: ${percentualSecao}% (${concluidasSecao}/${totalSecao})`);
-
+    console.log(`   📘 ${secao.secao}: ${percentualSecao}% (${resultado.feitas}/${resultado.total})`);
   });
 
   const percentualModulo = totalModulo
