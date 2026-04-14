@@ -263,9 +263,27 @@ resultadosModulos.forEach(m => {
 
 badges += `</p>\n`;
 
+// 📊 RESUMO VISUAL
+const resumo = `
+
+<p align="center">
+💜 <b>Aulas concluídas:</b> ${concluidas} &nbsp;&nbsp;|&nbsp;&nbsp;
+⏳ <b>Pendentes:</b> ${totalAulas - concluidas} &nbsp;&nbsp;|&nbsp;&nbsp;
+📈 <b>Progresso:</b> <b>${percentualGlobal}%</b></p>
+
+<p align="center">
+⏱️ <b>Tempo estudado:</b> ${tempoFeito} min &nbsp;&nbsp;|&nbsp;&nbsp;
+⌛ <b>Restante:</b> ${tempoTotal - tempoFeito} min
+</p>
+`;
+
 // 📄 README
 try {
   let readme = fs.readFileSync(README_PATH, 'utf8');
+  readme = readme.replace(
+  /(<!--PROGRESS_SUMMARY_START-->)[\s\S]*?(<!--PROGRESS_SUMMARY_END-->)/,
+  `$1${resumo}$2`
+);
 
   readme = readme.replace(
     /(<!--PROGRESS_BADGES_START-->)[\s\S]*?(<!--PROGRESS_BADGES_END-->)/,

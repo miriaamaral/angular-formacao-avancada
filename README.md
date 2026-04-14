@@ -7,7 +7,20 @@
 ---
 
 ## 📊 Dashboard de Progresso
+<br/>
+<!--PROGRESS_SUMMARY_START-->
 
+<p align="center">
+💜 <b>Aulas concluídas:</b> 95 &nbsp;&nbsp;|&nbsp;&nbsp;
+⏳ <b>Pendentes:</b> 13 &nbsp;&nbsp;|&nbsp;&nbsp;
+📈 <b>Progresso:</b> <b>88%</b></p>
+
+<p align="center">
+⏱️ <b>Tempo estudado:</b> 782 min &nbsp;&nbsp;|&nbsp;&nbsp;
+⌛ <b>Restante:</b> 100 min
+</p>
+<!--PROGRESS_SUMMARY_END-->
+<br/>
 <!--PROGRESS_BADGES_START-->
 <p align="center">
 <img src="https://img.shields.io/badge/Global-88%25-purple?style=for-the-badge" />
@@ -16,8 +29,7 @@
 <img src="https://img.shields.io/badge/Modulo-Angular-0%25-pink?style=for-the-badge" />
 </p>
 <!--PROGRESS_BADGES_END-->
-
----
+<br/>
 
 ## 🚀 Visão Geral do Aprendizado
 
