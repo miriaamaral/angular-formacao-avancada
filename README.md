@@ -19,6 +19,7 @@
 ⏱️ <b>Tempo estudado:</b> 782 min &nbsp;&nbsp;|&nbsp;&nbsp;
 ⌛ <b>Restante:</b> 100 min
 </p>
+
 <!--PROGRESS_SUMMARY_END-->
 <br/>
 <!--PROGRESS_BADGES_START-->
