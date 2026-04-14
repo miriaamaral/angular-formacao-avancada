@@ -1,0 +1,1368 @@
+{
+  "Modulo-JavaScript": {
+    "meta": {
+      "label": "JS"
+    },
+    "sections": [
+      {
+        "secao": "001 - primeiro código",
+        "aulas": [
+          {
+            "id": "001 - Introdução",
+            "nome": "001 - Introdução",
+            "tempo": 4
+          },
+          {
+            "id": "002 - sintax e Comentário",
+            "nome": "002 - sintax e Comentário",
+            "tempo": 9
+          }
+        ]
+      },
+      {
+        "secao": "002 - tipos primitivos",
+        "aulas": [
+          {
+            "id": "001 - strings",
+            "nome": "001 - strings",
+            "tempo": 1
+          },
+          {
+            "id": "002 - number",
+            "nome": "002 - number",
+            "tempo": 8
+          },
+          {
+            "id": "003 - Boolean",
+            "nome": "003 - Boolean",
+            "tempo": 7
+          },
+          {
+            "id": "004 - undefined e null",
+            "nome": "004 - undefined e null",
+            "tempo": 3
+          },
+          {
+            "id": "005 - array",
+            "nome": "005 - array",
+            "tempo": 3
+          },
+          {
+            "id": "006 - object",
+            "nome": "006 - object",
+            "tempo": 6
+          }
+        ]
+      },
+      {
+        "secao": "003 - operadores aritméticos",
+        "aulas": [
+          {
+            "id": "001 - adição",
+            "nome": "001 - adição",
+            "tempo": 6
+          },
+          {
+            "id": "002 - subtração",
+            "nome": "002 - subtração",
+            "tempo": 1
+          },
+          {
+            "id": "003 - multiplicação e divisao",
+            "nome": "003 - multiplicação e divisao",
+            "tempo": 2
+          },
+          {
+            "id": "004 - remainder",
+            "nome": "004 - remainder",
+            "tempo": 2
+          },
+          {
+            "id": "005 - atribuição",
+            "nome": "005 - atribuição",
+            "tempo": 7
+          },
+          {
+            "id": "006 - comparação",
+            "nome": "006 - comparação",
+            "tempo": 8
+          },
+          {
+            "id": "007 - lógicos",
+            "nome": "007 - lógicos",
+            "tempo": 5
+          },
+          {
+            "id": "008 - precedência",
+            "nome": "008 - precedência",
+            "tempo": 4
+          }
+        ]
+      },
+      {
+        "secao": "004 - variáveis",
+        "aulas": [
+          {
+            "id": "001 - entendendo variáveis",
+            "nome": "001 - entendendo variáveis",
+            "tempo": 8
+          },
+          {
+            "id": "002 - nomeando variáveis",
+            "nome": "002 - nomeando variáveis",
+            "tempo": 5
+          },
+          {
+            "id": "003 - escopo",
+            "nome": "003 - escopo",
+            "tempo": 4
+          }
+        ]
+      },
+      {
+        "secao": "005 - condicionais",
+        "aulas": [
+          {
+            "id": "001 - if e else",
+            "nome": "001 - if e else",
+            "tempo": 6
+          },
+          {
+            "id": "002 - falsy e truthy",
+            "nome": "002 - falsy e truthy",
+            "tempo": 3
+          },
+          {
+            "id": "003 - operador ternário",
+            "nome": "003 - operador ternário",
+            "tempo": 4
+          },
+          {
+            "id": "004 - switch",
+            "nome": "004 - switch",
+            "tempo": 5
+          }
+        ]
+      },
+      {
+        "secao": "006 - exercícios",
+        "aulas": [
+          {
+            "id": "001 - calculadora IMC",
+            "nome": "001 - calculadora IMC",
+            "tempo": 8
+          },
+          {
+            "id": "002 - tabuada",
+            "nome": "002 - tabuada",
+            "tempo": 7
+          },
+          {
+            "id": "003 - letras repetidas",
+            "nome": "003 - letras repetidas",
+            "tempo": 16
+          },
+          {
+            "id": "004 - testes",
+            "nome": "004 - testes",
+            "tempo": 4
+          }
+        ]
+      },
+      {
+        "secao": "007 - funções",
+        "aulas": [
+          {
+            "id": "001 - o que é uma função",
+            "nome": "001 - o que é uma função",
+            "tempo": 10
+          },
+          {
+            "id": "002 - argumentos",
+            "nome": "002 - argumentos",
+            "tempo": 8
+          },
+          {
+            "id": "003 - hoisting",
+            "nome": "003 - hoisting",
+            "tempo": 4
+          },
+          {
+            "id": "359-function-arrow",
+            "nome": "004 - Function x Arrow",
+            "tempo": 16
+          },
+          {
+            "id": "360-iife",
+            "nome": "005 - IIFE",
+            "tempo": 6
+          },
+          {
+            "id": "361-use-strict",
+            "nome": "006 - use strict",
+            "tempo": 3
+          },
+          {
+            "id": "362-funcoes-construtoras",
+            "nome": "007 - Funções Construtoras",
+            "tempo": 9
+          },
+          {
+            "id": "363-closures",
+            "nome": "008 - Closures",
+            "tempo": 8
+          }
+        ]
+      },
+      {
+        "secao": "Objetos e Arrays a Fundo",
+        "aulas": [
+          {
+            "id": "364-o-que-e-array",
+            "nome": "001 - O que é um Array (Objeto)",
+            "tempo": 7
+          },
+          {
+            "id": "367-destructuring-obj",
+            "nome": "004 - Destructuring",
+            "tempo": 10
+          },
+          {
+            "id": "371-mesclando-objetos",
+            "nome": "008 - Mesclando e Clonando objetos",
+            "tempo": 6
+          },
+          {
+            "id": "372-clonagem-profunda",
+            "nome": "009 - Clonagem profunda",
+            "tempo": 9
+          },
+          {
+            "id": "382-for-in-of",
+            "nome": "010 - For...For in...For of",
+            "tempo": 12
+          }
+        ]
+      },
+      {
+        "secao": "Javascript DOM",
+        "aulas": [
+          {
+            "id": "391-o-que-e-dom",
+            "nome": "001 - O que é e para que serve o DOM",
+            "tempo": 10
+          },
+          {
+            "id": "392-queryselector",
+            "nome": "002 - querySelector",
+            "tempo": 10
+          },
+          {
+            "id": "399-innerhtml-create",
+            "nome": "002 - innerHTML vs createElement",
+            "tempo": 7
+          },
+          {
+            "id": "402-documentfragment",
+            "nome": "005 - createDocumentFragment",
+            "tempo": 8
+          },
+          {
+            "id": "418-manipuladores-nivel2",
+            "nome": "003 - Manipuladores DOM Nível 2",
+            "tempo": 7
+          },
+          {
+            "id": "421-event-delegation",
+            "nome": "006 - Event Delegation",
+            "tempo": 8
+          },
+          {
+            "id": "424-formdata",
+            "nome": "002 - Submetendo formulário + FormData",
+            "tempo": 8
+          },
+          {
+            "id": "427-checkbox",
+            "nome": "005 - Manipulando Checkbox",
+            "tempo": 13
+          }
+        ]
+      }
+    ]
+  },
+  "Modulo-TypeScript": {
+    "meta": {
+      "label": "TS"
+    },
+    "sections": [
+      {
+        "secao": "Introdução e Tipos",
+        "aulas": [
+          {
+            "id": "428-introducao",
+            "nome": "Introdução",
+            "tempo": 11
+          },
+          {
+            "id": "429-string-number-boolean",
+            "nome": "001 - String - Number - Boolean",
+            "tempo": 8
+          },
+          {
+            "id": "430-array-objeto",
+            "nome": "002 - Array e Objeto",
+            "tempo": 9
+          },
+          {
+            "id": "434-never",
+            "nome": "006 - Never",
+            "tempo": 5
+          },
+          {
+            "id": "438-enum",
+            "nome": "010 - Enum",
+            "tempo": 5
+          }
+        ]
+      },
+      {
+        "secao": "Classes e Interfaces",
+        "aulas": [
+          {
+            "id": "439-class",
+            "nome": "001 - Class",
+            "tempo": 7
+          },
+          {
+            "id": "443-heranca",
+            "nome": "004 - Herança",
+            "tempo": 9
+          },
+          {
+            "id": "445-abstract",
+            "nome": "006 - Abstract",
+            "tempo": 8
+          },
+          {
+            "id": "446-static",
+            "nome": "007 - Static",
+            "tempo": 5
+          },
+          {
+            "id": "448-interfaces",
+            "nome": "001 - Entendendo interfaces",
+            "tempo": 6
+          }
+        ]
+      },
+      {
+        "secao": "Namespaces e Compilador",
+        "aulas": [
+          {
+            "id": "449-namespace",
+            "nome": "001 - Entendendo Namespace",
+            "tempo": 7
+          },
+          {
+            "id": "451-module",
+            "nome": "003 - Module",
+            "tempo": 6
+          },
+          {
+            "id": "452-compilador",
+            "nome": "001 - Entendendo compilador",
+            "tempo": 14
+          }
+        ]
+      }
+    ]
+  },
+  "Modulo-Angular": {
+    "meta": {
+      "label": "Angular"
+    },
+    "sections": [
+      {
+        "secao": "Instruções para o Curso",
+        "aulas": [
+          {
+            "id": "001-nao-pule",
+            "nome": "1. [ IMPORTANTE ] Não pule essa aula",
+            "tempo": 10
+          }
+        ]
+      },
+      {
+        "secao": "Iniciando com Angular",
+        "aulas": [
+          {
+            "id": "002-para-que-serve",
+            "nome": "2. O que é e para que serve o Angular",
+            "tempo": 9
+          },
+          {
+            "id": "003-documentacao",
+            "nome": "3. Conhecendo a Documentação",
+            "tempo": 14
+          },
+          {
+            "id": "004-importante",
+            "nome": "4. IMPORTANTE",
+            "tempo": 1
+          },
+          {
+            "id": "005-versionamento",
+            "nome": "5. Versionamento",
+            "tempo": 7
+          }
+        ]
+      },
+      {
+        "secao": "Instalação do Angular",
+        "aulas": [
+          {
+            "id": "006-recursos-proxima",
+            "nome": "6. Recursos da próxima aula",
+            "tempo": 1
+          },
+          {
+            "id": "007-instalando-recursos",
+            "nome": "7. Instalando os recursos",
+            "tempo": 4
+          },
+          {
+            "id": "008-angular-cli",
+            "nome": "8. Angular CLI",
+            "tempo": 1
+          },
+          {
+            "id": "009-cli",
+            "nome": "9. CLI",
+            "tempo": 10
+          },
+          {
+            "id": "010-arquitetura",
+            "nome": "10. Arquitetura",
+            "tempo": 11
+          },
+          {
+            "id": "011-build",
+            "nome": "11. Build",
+            "tempo": 2
+          },
+          {
+            "id": "012-mais-sobre",
+            "nome": "12. Mais sobre...",
+            "tempo": 2
+          }
+        ]
+      },
+      {
+        "secao": "Componentes",
+        "aulas": [
+          {
+            "id": "013-introducao",
+            "nome": "13. Introdução",
+            "tempo": 1
+          },
+          {
+            "id": "014-entendendo-componente",
+            "nome": "14. Entendendo o componente",
+            "tempo": 10
+          },
+          {
+            "id": "015-criando-componente",
+            "nome": "15. Criando um componente",
+            "tempo": 5
+          },
+          {
+            "id": "016-final",
+            "nome": "16. Final",
+            "tempo": 4
+          },
+          {
+            "id": "017-mais-sobre",
+            "nome": "17. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Estilos CSS",
+        "aulas": [
+          {
+            "id": "018-introducao",
+            "nome": "18. Introdução",
+            "tempo": 6
+          },
+          {
+            "id": "019-seletores-especiais",
+            "nome": "19. Seletores especiais",
+            "tempo": 5
+          },
+          {
+            "id": "020-mais-sobre",
+            "nome": "20. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Template",
+        "aulas": [
+          {
+            "id": "021-introducao",
+            "nome": "21. Introdução",
+            "tempo": 3
+          },
+          {
+            "id": "022-text-interpolation",
+            "nome": "22. Text Interpolation",
+            "tempo": 8
+          },
+          {
+            "id": "023-property-binding",
+            "nome": "23. Property binding",
+            "tempo": 4
+          },
+          {
+            "id": "024-attribute-binding",
+            "nome": "24. Attribute binding",
+            "tempo": 2
+          },
+          {
+            "id": "025-class-style-binding",
+            "nome": "25. Class and Style binding",
+            "tempo": 4
+          },
+          {
+            "id": "026-event-binding",
+            "nome": "26. Event binding",
+            "tempo": 8
+          },
+          {
+            "id": "027-two-way-binding",
+            "nome": "27. Two-way binding",
+            "tempo": 2
+          },
+          {
+            "id": "028-ngclass-ngstyle",
+            "nome": "28. NgClass e NgStyle",
+            "tempo": 8
+          },
+          {
+            "id": "029-template-variables",
+            "nome": "29. Template Variables",
+            "tempo": 10
+          },
+          {
+            "id": "030-mais-sobre",
+            "nome": "30. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Control Flow",
+        "aulas": [
+          {
+            "id": "031-if",
+            "nome": "31. @IF",
+            "tempo": 10
+          },
+          {
+            "id": "032-for",
+            "nome": "32. @For",
+            "tempo": 9
+          },
+          {
+            "id": "033-for-valores",
+            "nome": "33. @For e seus valores",
+            "tempo": 5
+          },
+          {
+            "id": "034-for-empty",
+            "nome": "34. @For - @empty",
+            "tempo": 5
+          },
+          {
+            "id": "035-switch-case",
+            "nome": "35. @Switch Case",
+            "tempo": 5
+          },
+          {
+            "id": "036-mais-sobre",
+            "nome": "36. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Deferrable Views",
+        "aulas": [
+          {
+            "id": "037-introducao",
+            "nome": "37. Introdução",
+            "tempo": 7
+          },
+          {
+            "id": "038-defer-on",
+            "nome": "38. @defer - On...",
+            "tempo": 13
+          },
+          {
+            "id": "039-defer-when",
+            "nome": "39. @defer - when",
+            "tempo": 3
+          },
+          {
+            "id": "040-placeholder",
+            "nome": "40. @placeholder - minimum",
+            "tempo": 3
+          },
+          {
+            "id": "041-loading",
+            "nome": "41. @loading - after - minimum",
+            "tempo": 4
+          },
+          {
+            "id": "042-error",
+            "nome": "42. @error",
+            "tempo": 1
+          },
+          {
+            "id": "043-mais-sobre",
+            "nome": "43. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Signals",
+        "aulas": [
+          {
+            "id": "044-introducao",
+            "nome": "44. Introdução",
+            "tempo": 3
+          },
+          {
+            "id": "045-usando-signal",
+            "nome": "45. Usando o Signal",
+            "tempo": 8
+          },
+          {
+            "id": "046-effect",
+            "nome": "46. Effect",
+            "tempo": 3
+          },
+          {
+            "id": "047-mais-sobre",
+            "nome": "47. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Projeto Prático: Portfólio",
+        "aulas": [
+          {
+            "id": "048-introducao",
+            "nome": "48. Introdução",
+            "tempo": 2
+          },
+          {
+            "id": "049-recursos",
+            "nome": "49. Recursos",
+            "tempo": 1
+          },
+          {
+            "id": "050-passos-iniciais",
+            "nome": "50. Passos iniciais do projeto",
+            "tempo": 6
+          },
+          {
+            "id": "051-html-header",
+            "nome": "51. [ HTML ] Header Component",
+            "tempo": 11
+          },
+          {
+            "id": "052-html-knowledge",
+            "nome": "52. [ HTML ] Knowledge Component",
+            "tempo": 8
+          },
+          {
+            "id": "053-html-experiences",
+            "nome": "53. [ HTML ] Experiences Component",
+            "tempo": 9
+          },
+          {
+            "id": "054-html-projects",
+            "nome": "54. [ HTML ] Projects Component",
+            "tempo": 10
+          },
+          {
+            "id": "055-smecss-scss",
+            "nome": "55. Configurando o SMECSS com SCSS",
+            "tempo": 11
+          },
+          {
+            "id": "056-css-container",
+            "nome": "56. Criando a classe css container",
+            "tempo": 5
+          },
+          {
+            "id": "057-css-header",
+            "nome": "57. [ CSS ] Header Component",
+            "tempo": 13
+          },
+          {
+            "id": "058-css-header-button",
+            "nome": "58. [ CSS ] Header + Button Component",
+            "tempo": 5
+          },
+          {
+            "id": "059-css-knowledge",
+            "nome": "59. [ CSS ] Knowledge Component",
+            "tempo": 3
+          },
+          {
+            "id": "060-css-experiences",
+            "nome": "60. [ CSS ] Experiences Component",
+            "tempo": 7
+          },
+          {
+            "id": "061-css-projects",
+            "nome": "61. [ CSS ] Projects Component",
+            "tempo": 6
+          },
+          {
+            "id": "062-dialog-projects",
+            "nome": "62. [ DIALOG ] Projects Component",
+            "tempo": 7
+          },
+          {
+            "id": "063-html-ts-dialog",
+            "nome": "63. [ HTML + TS ] Dialog Component",
+            "tempo": 8
+          },
+          {
+            "id": "064-css-dialog",
+            "nome": "64. [ CSS ] Dialog Component",
+            "tempo": 5
+          },
+          {
+            "id": "065-final",
+            "nome": "65. Final",
+            "tempo": 2
+          },
+          {
+            "id": "066-maximizando-impacto",
+            "nome": "66. Maximizando Seu Impacto",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Comunicação entre componentes",
+        "aulas": [
+          {
+            "id": "067-introducao",
+            "nome": "67. Introdução",
+            "tempo": 5
+          },
+          {
+            "id": "068-input",
+            "nome": "68. @Input",
+            "tempo": 10
+          },
+          {
+            "id": "069-output",
+            "nome": "69. Output",
+            "tempo": 5
+          }
+        ]
+      },
+      {
+        "secao": "Pipes",
+        "aulas": [
+          {
+            "id": "070-pipes",
+            "nome": "70. Pipes",
+            "tempo": 10
+          },
+          {
+            "id": "071-pipes-continuacao",
+            "nome": "71. Pipes continuação",
+            "tempo": 10
+          },
+          {
+            "id": "072-pipes-locale",
+            "nome": "72. Pipes com Locale Global",
+            "tempo": 1
+          },
+          {
+            "id": "073-pipes-customizados",
+            "nome": "73. Pipes customizados",
+            "tempo": 7
+          },
+          {
+            "id": "074-mais-sobre",
+            "nome": "74. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Projeto Prático: Lista de Tarefas",
+        "aulas": [
+          {
+            "id": "075-introducao",
+            "nome": "75. Introdução",
+            "tempo": 2
+          },
+          {
+            "id": "076-passos-iniciais",
+            "nome": "76. Passos iniciais do projeto",
+            "tempo": 8
+          },
+          {
+            "id": "077-recursos",
+            "nome": "77. Recursos",
+            "tempo": 1
+          },
+          {
+            "id": "078-reset-scss",
+            "nome": "78. Configurando reset scss",
+            "tempo": 5
+          },
+          {
+            "id": "079-html-page-list",
+            "nome": "79. [ HTML ] Page List Component",
+            "tempo": 7
+          },
+          {
+            "id": "080-css-container",
+            "nome": "80. [ CSS ] Container + Buttons",
+            "tempo": 9
+          },
+          {
+            "id": "081-css-input-label",
+            "nome": "81. [ CSS ] Input label text",
+            "tempo": 6
+          },
+          {
+            "id": "082-css-page-list",
+            "nome": "82. [ CSS ] Page List Component",
+            "tempo": 3
+          },
+          {
+            "id": "083-ts-page-list",
+            "nome": "83. [ TS ] Page List Component",
+            "tempo": 2
+          },
+          {
+            "id": "084-input-add",
+            "nome": "84. Novo component - Input add item",
+            "tempo": 12
+          },
+          {
+            "id": "085-localstorage",
+            "nome": "85. Persistindo dados no localstorage",
+            "tempo": 10
+          },
+          {
+            "id": "086-transitando-dados",
+            "nome": "86. Transitando dados entre componentes",
+            "tempo": 8
+          },
+          {
+            "id": "087-css-input-label-2",
+            "nome": "87. [ CSS ] Input label text",
+            "tempo": 4
+          },
+          {
+            "id": "088-css-page-list-2",
+            "nome": "88. [ CSS ] Page List Component",
+            "tempo": 6
+          },
+          {
+            "id": "089-input-list-item",
+            "nome": "89. Criando/editando component list item",
+            "tempo": 6
+          },
+          {
+            "id": "090-filtrando-dados",
+            "nome": "90. Filtrando os dados",
+            "tempo": 4
+          },
+          {
+            "id": "091-update-checked",
+            "nome": "91. Update checked",
+            "tempo": 7
+          },
+          {
+            "id": "092-update-value",
+            "nome": "92. Update value",
+            "tempo": 4
+          },
+          {
+            "id": "093-delete-item",
+            "nome": "93. Delete Item",
+            "tempo": 4
+          },
+          {
+            "id": "094-melhorias-codigo",
+            "nome": "94. Melhorias no código",
+            "tempo": 4
+          },
+          {
+            "id": "095-sweet-alert",
+            "nome": "95. Sweet Alert 2",
+            "tempo": 4
+          }
+        ]
+      },
+      {
+        "secao": "Template driven forms",
+        "aulas": [
+          {
+            "id": "096-introducao",
+            "nome": "96. Introdução",
+            "tempo": 3
+          },
+          {
+            "id": "097-form-input",
+            "nome": "97. Form Input",
+            "tempo": 5
+          },
+          {
+            "id": "098-form-radio",
+            "nome": "98. Form Radio",
+            "tempo": 2
+          },
+          {
+            "id": "099-form-checkbox",
+            "nome": "99. Form Checkbox",
+            "tempo": 2
+          },
+          {
+            "id": "100-form-select",
+            "nome": "100. Form Select",
+            "tempo": 6
+          },
+          {
+            "id": "101-form-submit",
+            "nome": "101. Form Submit",
+            "tempo": 6
+          },
+          {
+            "id": "102-mais-sobre",
+            "nome": "102. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Reactive forms",
+        "aulas": [
+          {
+            "id": "103-form-control",
+            "nome": "103. Form Control",
+            "tempo": 4
+          },
+          {
+            "id": "104-form-groups",
+            "nome": "104. Form Groups",
+            "tempo": 5
+          },
+          {
+            "id": "105-form-array",
+            "nome": "105. Form Array",
+            "tempo": 11
+          },
+          {
+            "id": "106-form-builder",
+            "nome": "106. Form Builder",
+            "tempo": 6
+          },
+          {
+            "id": "107-acessos-valid",
+            "nome": "107. Acessos - value - valid - dirty - touched",
+            "tempo": 7
+          },
+          {
+            "id": "108-validators",
+            "nome": "108. Validators",
+            "tempo": 5
+          },
+          {
+            "id": "109-custom-validators",
+            "nome": "109. Custom Validators",
+            "tempo": 6
+          },
+          {
+            "id": "110-submit",
+            "nome": "110. Submit",
+            "tempo": 3
+          },
+          {
+            "id": "111-mais-sobre",
+            "nome": "111. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Componentes avançado",
+        "aulas": [
+          {
+            "id": "112-ng-content",
+            "nome": "112. ng-content",
+            "tempo": 5
+          },
+          {
+            "id": "113-host-elements",
+            "nome": "113. Host elements",
+            "tempo": 7
+          },
+          {
+            "id": "114-ciclo-vida",
+            "nome": "114. Ciclo de Vida",
+            "tempo": 3
+          },
+          {
+            "id": "115-onchanges-oninit",
+            "nome": "115. Ciclo de Vida - OnChanges - OnInit",
+            "tempo": 10
+          },
+          {
+            "id": "116-docheck",
+            "nome": "116. DoCheck",
+            "tempo": 3
+          },
+          {
+            "id": "117-afterviewinit",
+            "nome": "117. AfterViewInit + ViewChild",
+            "tempo": 5
+          },
+          {
+            "id": "118-aftercontentinit",
+            "nome": "118. AfterContentInit + ContentChild",
+            "tempo": 4
+          },
+          {
+            "id": "119-aftercontentchecked",
+            "nome": "119. AfterContentChecked + AfterViewChecked",
+            "tempo": 3
+          },
+          {
+            "id": "120-ondestroy",
+            "nome": "120. OnDestroy + takeUntilDestroyed",
+            "tempo": 8
+          },
+          {
+            "id": "121-change-detection",
+            "nome": "121. Change Detection",
+            "tempo": 6
+          },
+          {
+            "id": "122-schematics-tsconfig",
+            "nome": "122. @schematics + tsconfig",
+            "tempo": 5
+          },
+          {
+            "id": "123-mais-sobre",
+            "nome": "123. Mais sobre...",
+            "tempo": 2
+          }
+        ]
+      },
+      {
+        "secao": "Variáveis de ambiente",
+        "aulas": [
+          {
+            "id": "124-environment",
+            "nome": "124. Environment",
+            "tempo": 5
+          },
+          {
+            "id": "125-mais-sobre",
+            "nome": "125. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Services",
+        "aulas": [
+          {
+            "id": "126-o-que-e-service",
+            "nome": "126. O que é e para que serve uma Service",
+            "tempo": 14
+          },
+          {
+            "id": "127-recursos",
+            "nome": "127. Recursos",
+            "tempo": 1
+          },
+          {
+            "id": "128-observable-get-subscribe",
+            "nome": "128. Observable + http-Get + Subscribe",
+            "tempo": 13
+          },
+          {
+            "id": "129-observable-get-async",
+            "nome": "129. Observable + http-Get + Async",
+            "tempo": 5
+          },
+          {
+            "id": "130-observable-get-signal",
+            "nome": "130. Observable + http-Get + Signal + toSignal + get and set",
+            "tempo": 9
+          },
+          {
+            "id": "131-observable-get-id",
+            "nome": "131. Observable + http-Get por ID + Signal",
+            "tempo": 6
+          },
+          {
+            "id": "132-observable-post",
+            "nome": "132. Observable + http-Post + Signal + ConcatMap",
+            "tempo": 9
+          },
+          {
+            "id": "133-observable-patch",
+            "nome": "133. Observable + http-Patch + Signal",
+            "tempo": 4
+          },
+          {
+            "id": "134-observable-delete",
+            "nome": "134. Observable + http-Delete + Signal",
+            "tempo": 5
+          },
+          {
+            "id": "135-feedback-loading",
+            "nome": "135. Feedback de Loading",
+            "tempo": 3
+          },
+          {
+            "id": "136-tratamento-erro",
+            "nome": "136. Tratamento de Erro",
+            "tempo": 14
+          },
+          {
+            "id": "137-httpheaders",
+            "nome": "137. HttpHeaders + HttpParams",
+            "tempo": 4
+          },
+          {
+            "id": "138-interceptors",
+            "nome": "138. Interceptors + retry",
+            "tempo": 9
+          },
+          {
+            "id": "139-mais-sobre",
+            "nome": "139. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Rotas",
+        "aulas": [
+          {
+            "id": "140-introducao",
+            "nome": "140. Introdução",
+            "tempo": 4
+          },
+          {
+            "id": "141-navegando-paginas",
+            "nome": "141. Navegando entre páginas",
+            "tempo": 6
+          },
+          {
+            "id": "142-parametros",
+            "nome": "142. Parametros",
+            "tempo": 10
+          },
+          {
+            "id": "143-rota-coringa",
+            "nome": "143. Rota coringa",
+            "tempo": 2
+          },
+          {
+            "id": "144-rotas-filhas",
+            "nome": "144. Rotas filhas",
+            "tempo": 2
+          },
+          {
+            "id": "145-lazy-load",
+            "nome": "145. Lazy load component",
+            "tempo": 5
+          },
+          {
+            "id": "146-lazy-load-children",
+            "nome": "146. Lay load children",
+            "tempo": 5
+          },
+          {
+            "id": "147-query-params",
+            "nome": "147. Query Params",
+            "tempo": 3
+          },
+          {
+            "id": "148-router-navigate",
+            "nome": "148. Router Navigate",
+            "tempo": 2
+          },
+          {
+            "id": "149-mais-sobre",
+            "nome": "149. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Proteção de Rotas",
+        "aulas": [
+          {
+            "id": "150-canactivate",
+            "nome": "150. CanActivate + CanActivateChild",
+            "tempo": 10
+          },
+          {
+            "id": "151-canmatch",
+            "nome": "151. CanMatch",
+            "tempo": 3
+          },
+          {
+            "id": "152-candeactivate",
+            "nome": "152. CanDeactivate",
+            "tempo": 9
+          }
+        ]
+      },
+      {
+        "secao": "Internacionalização",
+        "aulas": [
+          {
+            "id": "153-ngx-translate",
+            "nome": "153. Instalando ngx-translate",
+            "tempo": 7
+          },
+          {
+            "id": "154-alterando-dados",
+            "nome": "154. Alterando dados",
+            "tempo": 4
+          }
+        ]
+      },
+      {
+        "secao": "Otimização de Imagem",
+        "aulas": [
+          {
+            "id": "155-otimizacoes",
+            "nome": "155. Iniciando nossas otimizações",
+            "tempo": 7
+          },
+          {
+            "id": "156-fill",
+            "nome": "156. Fill",
+            "tempo": 4
+          },
+          {
+            "id": "157-provideimgixloader",
+            "nome": "157. ProvideImgixLoader",
+            "tempo": 14
+          },
+          {
+            "id": "158-disableoptimizedsrcset",
+            "nome": "158. DisableOptimizedSrcset",
+            "tempo": 3
+          },
+          {
+            "id": "159-mais-sobre",
+            "nome": "159. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "Animações",
+        "aulas": [
+          {
+            "id": "160-introducao",
+            "nome": "160. Introdução",
+            "tempo": 6
+          },
+          {
+            "id": "161-trigger-state",
+            "nome": "161. Trigger + State",
+            "tempo": 8
+          },
+          {
+            "id": "162-transition-animate",
+            "nome": "162. Transition + Animate",
+            "tempo": 9
+          },
+          {
+            "id": "163-transition-if",
+            "nome": "163. Tansition + if",
+            "tempo": 4
+          },
+          {
+            "id": "164-keyframes",
+            "nome": "164. Keyframes",
+            "tempo": 6
+          },
+          {
+            "id": "165-query-stagger",
+            "nome": "165. Query + Stagger",
+            "tempo": 5
+          },
+          {
+            "id": "166-group-sequence",
+            "nome": "166. Group + Sequence",
+            "tempo": 4
+          },
+          {
+            "id": "167-leave-for",
+            "nome": "167. leave + for",
+            "tempo": 5
+          },
+          {
+            "id": "168-compartilhando",
+            "nome": "168. Compartilhando animações",
+            "tempo": 2
+          },
+          {
+            "id": "169-animacao-responsiva",
+            "nome": "169. Animação Responsiva",
+            "tempo": 5
+          },
+          {
+            "id": "170-rotas-increment",
+            "nome": "170. Rotas + increment + decrement",
+            "tempo": 8
+          },
+          {
+            "id": "171-mais-sobre",
+            "nome": "171. Mais sobre...",
+            "tempo": 1
+          }
+        ]
+      },
+      {
+        "secao": "[Legado] Projeto prático 4",
+        "aulas": [
+          {
+            "id": "326-dark-theme",
+            "nome": "326. Dark Theme",
+            "tempo": 29
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,133 +1,196 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log("🚀 Iniciando scanner (versão blindada)...");
+console.log("🚀 Scanner PRO (estrutura por seção + busca inteligente)");
 
-// 📦 Módulos
-const modules = [
-  { name: 'Modulo-JavaScript', label: 'JS' },
-  { name: 'Modulo-TypeScript', label: 'TS' },
-  { name: 'Modulo-Angular', label: 'Angular' }
-];
+// 📁 CONFIG
+const ROOT = __dirname;
+const MAP_PATH = path.join(ROOT, 'course-map.json');
+const README_PATH = path.join(ROOT, 'README.md');
 
-// 🚫 pastas ignoradas
-const IGNORED = new Set(['assets', '.github', 'node_modules']);
-
-// 🔍 pega apenas pastas finais reais (leaf nodes)
-function getLeafDirs(dir) {
-  if (!fs.existsSync(dir)) return [];
-
-  const entries = fs.readdirSync(dir);
-
-  const dirs = entries
-    .map(e => path.join(dir, e))
-    .filter(p => {
-      if (!fs.existsSync(p)) return false;
-      if (!fs.statSync(p).isDirectory()) return false;
-      if (IGNORED.has(path.basename(p))) return false;
-      return true;
-    });
-
-  if (dirs.length === 0) {
-    return [dir];
-  }
-
-  let result = [];
-  dirs.forEach(d => {
-    result = result.concat(getLeafDirs(d));
-  });
-
-  return result;
+if (!fs.existsSync(MAP_PATH)) {
+  console.log('❌ course-map.json não encontrado');
+  process.exit(1);
 }
 
-// 📊 cálculo de progresso
-const results = modules.map(mod => {
-  const modPath = path.join(__dirname, mod.name);
+const mapa = JSON.parse(fs.readFileSync(MAP_PATH, 'utf8'));
 
-  if (!fs.existsSync(modPath)) {
-    return { label: mod.label, percent: 0 };
+// 🧠 HELPERS
+function normalizar(texto) {
+  return texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]/g, '');
+}
+
+function encontrarPasta(basePath, nomeAlvo) {
+  if (!fs.existsSync(basePath)) return null;
+
+  const alvo = normalizar(nomeAlvo);
+
+  const itens = fs.readdirSync(basePath, { withFileTypes: true });
+
+  for (const item of itens) {
+    if (!item.isDirectory()) continue;
+
+    const nome = item.name;
+    const caminho = path.join(basePath, nome);
+
+    const nomeNormalizado = normalizar(nome);
+
+    // match flexível
+    if (nomeNormalizado.includes(alvo.slice(0, 10))) {
+      return caminho;
+    }
   }
 
-  const leafDirs = getLeafDirs(modPath);
+  return null;
+}
 
-  const completed = leafDirs.filter(dir =>
-    fs.existsSync(path.join(dir, 'exercicio-concluido.md'))
-  ).length;
+// 🌍 ESTADO GLOBAL
+let totalAulas = 0;
+let concluidas = 0;
+let tempoTotal = 0;
+let tempoFeito = 0;
 
-  const percent = leafDirs.length
-    ? Math.round((completed / leafDirs.length) * 100)
+// 📊 PROCESSAMENTO
+const resultadosModulos = Object.entries(mapa).map(([nomeModulo, dadosModulo]) => {
+
+  console.log(`\n📦 MÓDULO: ${nomeModulo}`);
+
+  const caminhoModulo = path.join(ROOT, nomeModulo);
+
+  if (!fs.existsSync(caminhoModulo)) {
+    console.log(`⚠️ Pasta do módulo não existe: ${nomeModulo}`);
+    return {
+      rotulo: nomeModulo,
+      percentual: 0
+    };
+  }
+
+  let totalModulo = 0;
+  let concluidasModulo = 0;
+
+  dadosModulo.sections.forEach(secao => {
+
+    let totalSecao = 0;
+    let concluidasSecao = 0;
+
+    // 🔎 encontra pasta da seção
+    const pastaSecao = encontrarPasta(caminhoModulo, secao.secao);
+
+    secao.aulas.forEach(aula => {
+
+      totalAulas++;
+      totalModulo++;
+      totalSecao++;
+
+      if (aula.tempo) tempoTotal += aula.tempo;
+
+      let concluida = false;
+
+      if (pastaSecao) {
+        // 🔎 encontra pasta da aula dentro da seção
+        const pastaAula = encontrarPasta(pastaSecao, aula.nome);
+
+        if (pastaAula) {
+          // ✅ dupla checagem
+          const arquivo = path.join(pastaAula, 'exercicio-concluido.md');
+
+          if (fs.existsSync(arquivo) || pastaAula) {
+            concluida = true;
+          }
+        }
+      }
+
+      if (concluida) {
+        concluidas++;
+        concluidasModulo++;
+        concluidasSecao++;
+
+        if (aula.tempo) tempoFeito += aula.tempo;
+      }
+
+    });
+
+    const percentualSecao = totalSecao
+      ? Math.round((concluidasSecao / totalSecao) * 100)
+      : 0;
+
+    console.log(`   📘 ${secao.secao}: ${percentualSecao}% (${concluidasSecao}/${totalSecao})`);
+
+  });
+
+  const percentualModulo = totalModulo
+    ? Math.round((concluidasModulo / totalModulo) * 100)
     : 0;
 
-  return { label: mod.label, percent };
+  return {
+    rotulo: dadosModulo.meta?.label || nomeModulo,
+    percentual: percentualModulo
+  };
+
 });
 
-// 📊 dados
-const labels = results.map(r => r.label);
-const data = results.map(r => r.percent);
+// 🌍 GLOBAL
+const percentualGlobal = totalAulas
+  ? Math.round((concluidas / totalAulas) * 100)
+  : 0;
 
-// 🎨 gráfico estável (SEM quebra de URL)
+console.log('\n📊 RESUMO GERAL:');
+console.log(`✔ Aulas concluídas: ${concluidas}`);
+console.log(`⏳ Pendentes: ${totalAulas - concluidas}`);
+console.log(`📈 Progresso: ${percentualGlobal}%`);
+
+console.log('\n⏱️ TEMPO:');
+console.log(`✔ Estudado: ${tempoFeito} min`);
+console.log(`⏳ Restante: ${tempoTotal - tempoFeito} min`);
+
+// 📊 GRÁFICO
+const labels = resultadosModulos.map(r => r.rotulo);
+const data = resultadosModulos.map(r => r.percentual);
+
 const chartConfig = {
   type: 'bar',
   data: {
     labels,
     datasets: [{
       data,
-      backgroundColor: '#F8C1D1',
-      borderRadius: 8,
-      barThickness: 26
+      backgroundColor: '#F8C1D1'
     }]
-  },
-  options: {
-    indexAxis: 'y',
-    plugins: { legend: { display: false } },
-    scales: {
-      x: { min: 0, max: 100, ticks: { color: '#999' } },
-      y: { ticks: { color: '#333' } }
-    }
   }
 };
 
-const chartUrl =
-  `https://quickchart.io/chart?bkg=transparent&c=${encodeURIComponent(JSON.stringify(chartConfig))}`;
+const chartURL = `https://quickchart.io/chart?c=${encodeURIComponent(JSON.stringify(chartConfig))}`;
 
-// 📄 atualizar README (SEGURO)
+// 🏷️ BADGES
+let badges = `\n<p align="center">\n`;
+badges += `<img src="https://img.shields.io/badge/Global-${percentualGlobal}%25-purple?style=for-the-badge" />\n`;
+
+resultadosModulos.forEach(m => {
+  badges += `<img src="https://img.shields.io/badge/${m.rotulo}-${m.percentual}%25-pink?style=for-the-badge" />\n`;
+});
+
+badges += `</p>\n`;
+
+// 📄 README
 try {
-  const readmePath = path.join(__dirname, 'README.md');
-  let content = fs.readFileSync(readmePath, 'utf8');
+  let readme = fs.readFileSync(README_PATH, 'utf8');
 
-  // 🔒 regex seguros (NUNCA quebram README)
-    const badgeRegex =
-  /(<!--PROGRESS_BADGES_START-->)[\s\S]*?(<!--PROGRESS_BADGES_END-->)/;
+  readme = readme.replace(
+    /(<!--PROGRESS_BADGES_START-->)[\s\S]*?(<!--PROGRESS_BADGES_END-->)/,
+    `$1${badges}$2`
+  );
 
-// 🔥 BADGES FIXOS (100% estáveis no GitHub)
-const badgesHTML = `
-<p align="center">
-  <img src="https://img.shields.io/badge/JS-${results[0].percent}%25-ff69b4?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/TS-${results[1].percent}%25-ff69b4?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Angular-${results[2].percent}%25-ff69b4?style=for-the-badge" />
-</p>
-`;
+  readme = readme.replace(
+    /(<!--PROGRESS_CHART_START-->)[\s\S]*?(<!--PROGRESS_CHART_END-->)/,
+    `$1\n<img src="${chartURL}" />\n$2`
+  );
 
-content = content.replace(badgeRegex, `$1${badgesHTML}$2`);
+  fs.writeFileSync(README_PATH, readme);
 
-  const chartRegex =
-    /(<!--PROGRESS_CHART_START-->)[\s\S]*?(<!--PROGRESS_CHART_END-->)/;
-
-  // 📊 gráfico
-  const newChart = `
-<p align="center">
-  <img src="${chartUrl}" alt="Gráfico de Conhecimento" width="65%" />
-</p>
-`;
-
-  content = content.replace(chartRegex, `$1${newChart}$2`);
-
-
-  fs.writeFileSync(readmePath, content);
-
-  console.log('✅ README atualizado com segurança total');
-  console.log('📊 Progresso:', results);
-
-} catch (err) {
-  console.log('❌ Erro:', err.message);
+  console.log('\n✅ README atualizado!');
+} catch (e) {
+  console.log('⚠️ Erro ao atualizar README:', e.message);
 }
