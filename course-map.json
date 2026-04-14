@@ -188,64 +188,179 @@
             "tempo": 4
           },
           {
-            "id": "359-function-arrow",
-            "nome": "004 - Function x Arrow",
+            "id": "004 - functions x arrow functions",
+            "nome": "004 - functions x arrow functions",
             "tempo": 16
           },
           {
-            "id": "360-iife",
-            "nome": "005 - IIFE",
+            "id": "005 - expressão de função invocada",
+            "nome": "005 - expressão de função invocada",
             "tempo": 6
           },
           {
-            "id": "361-use-strict",
-            "nome": "006 - use strict",
+            "id": "006 - strict",
+            "nome": "006 - strict",
             "tempo": 3
           },
           {
-            "id": "362-funcoes-construtoras",
-            "nome": "007 - Funções Construtoras",
+            "id": "007 - funções construtoras",
+            "nome": "007 - funções construtoras",
             "tempo": 9
           },
           {
-            "id": "363-closures",
-            "nome": "008 - Closures",
+            "id": "008 - closures",
+            "nome": "008 - closures",
             "tempo": 8
           }
         ]
       },
       {
-        "secao": "Objetos e Arrays a Fundo",
+        "secao": "008 - object a fundo",
         "aulas": [
           {
-            "id": "364-o-que-e-array",
-            "nome": "001 - O que é um Array (Objeto)",
+            "id": "001 - o que é um objecto",
+            "nome": "001 - o que é um objecto",
             "tempo": 7
           },
           {
-            "id": "367-destructuring-obj",
-            "nome": "004 - Destructuring",
+            "id": "002 - propiedade, metodos e valores curtos",
+            "nome": "002 - propiedade, metodos e valores curtos",
             "tempo": 10
           },
           {
-            "id": "371-mesclando-objetos",
-            "nome": "008 - Mesclando e Clonando objetos",
+            "id": "003 - acessando valores do objeto",
+            "nome": "003 - acessando valores do objeto",
             "tempo": 6
           },
           {
-            "id": "372-clonagem-profunda",
-            "nome": "009 - Clonagem profunda",
+            "id": "004 - destructuring",
+            "nome": "004 - destructuring",
             "tempo": 9
           },
           {
-            "id": "382-for-in-of",
-            "nome": "010 - For...For in...For of",
+            "id": "005 - validação de existência de  propriedade e valor",
+            "nome": "005 - validação de existência de  propriedade e valor",
+            "tempo": 12
+          },
+          {
+            "id": "006 - adicionando e atualizando dados",
+            "nome": "006 - adicionando e atualizando dados",
+            "tempo": 12
+          },
+          {
+            "id": "007 - removendo propiedades do Objeto",
+            "nome": "007 - removendo propiedades do Objeto",
+            "tempo": 12
+          },
+          {
+            "id": "008 - mesclando e clonando Objeto",
+            "nome": "008 - mesclando e clonando Objeto",
+            "tempo": 12
+          },
+          {
+            "id": "009 - clonagem de objetos rasos e profundos",
+            "nome": "009 - clonagem de objetos rasos e profundos",
             "tempo": 12
           }
         ]
       },
       {
-        "secao": "Javascript DOM",
+        "secao": "009 - array a fundo",
+        "aulas": [
+          {
+            "id": "001 - o que é um array",
+            "nome": "001 - o que é um array",
+            "tempo": 7
+          },
+          {
+            "id": "002 - indices e elementos",
+            "nome": "002 - indices e elementos",
+            "tempo": 6
+          },
+          {
+            "id": "003 - matrizes multidimensionais",
+            "nome": "003 - matrizes multidimensionais",
+            "tempo": 9
+          },
+          {
+            "id": "004 - destructuring",
+            "nome": "004 - destructuring",
+            "tempo": 12
+          },
+          {
+            "id": "005 - spread operator",
+            "nome": "005 - spread operator",
+            "tempo": 12
+          },
+          {
+            "id": "006 - adicionando elementos",
+            "nome": "006 - adicionando elementos",
+            "tempo": 12
+          },
+          {
+            "id": "007 - removendo itens",
+            "nome": "007 - removendo itens",
+            "tempo": 12
+          },
+          {
+            "id": "008 - removendo parte 2",
+            "nome": "008 - removendo parte 2",
+            "tempo": 12
+          },
+          {
+            "id": "009 - ordenando e revertendo valores",
+            "nome": "009 - ordenando e revertendo valores",
+            "tempo": 12
+          },
+          {
+            "id": "010 - loop for, for in e for of",
+            "nome": "010 - loop for, for in e for of",
+            "tempo": 12
+          },
+          {
+            "id": "011 - continue e break",
+            "nome": "011 - continue e break",
+            "tempo": 12
+          },
+          {
+            "id": "012 - forEach",
+            "nome": "012 - forEach",
+            "tempo": 12
+          },
+          {
+            "id": "013 - map",
+            "nome": "013 - map",
+            "tempo": 12
+          },
+          {
+            "id": "014 - filter",
+            "nome": "014 - filter",
+            "tempo": 12
+          },
+          {
+            "id": "015 - find",
+            "nome": "015 - find",
+            "tempo": 12
+          },
+          {
+            "id": "016 - every",
+            "nome": "016 - every",
+            "tempo": 12
+          },
+          {
+            "id": "017 - some",
+            "nome": "017 - some",
+            "tempo": 12
+          },
+          {
+            "id": "018 - reduce",
+            "nome": "018 - reduce",
+            "tempo": 12
+          }
+        ]
+      },
+      {
+        "secao": "010 - DOM",
         "aulas": [
           {
             "id": "391-o-que-e-dom",
