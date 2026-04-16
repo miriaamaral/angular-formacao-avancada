@@ -566,71 +566,129 @@
         }
       ]
     },
+
     "Modulo-TypeScript": {
       "meta": {
         "label": "TS"
       },
       "sections": [
-        {
-          "secao": "Introdução e Tipos",
-          "aulas": [
+        {"aulas": [
             {
-              "id": "428-introducao",
-              "nome": "Introdução",
+              "id": "001 - introdução",
+              "nome": "001 - introdução",
               "tempo": 11
-            },
-            {
-              "id": "429-string-number-boolean",
-              "nome": "001 - String - Number - Boolean",
-              "tempo": 8
-            },
-            {
-              "id": "430-array-objeto",
-              "nome": "002 - Array e Objeto",
-              "tempo": 9
-            },
-            {
-              "id": "434-never",
-              "nome": "006 - Never",
-              "tempo": 5
-            },
-            {
-              "id": "438-enum",
-              "nome": "010 - Enum",
-              "tempo": 5
             }
           ]
         },
         {
-          "secao": "Classes e Interfaces",
+          "secao": "002 - tipos",
           "aulas": [
             {
-              "id": "439-class",
-              "nome": "001 - Class",
-              "tempo": 7
+              "id": "001 - string, number e boolean",
+              "nome": "001 - string, number e boolean",
+              "tempo": 11
             },
             {
-              "id": "443-heranca",
-              "nome": "004 - Herança",
-              "tempo": 9
-            },
-            {
-              "id": "445-abstract",
-              "nome": "006 - Abstract",
+              "id": "002 - array e objeto",
+              "nome": "002 - array e objeto",
               "tempo": 8
             },
             {
-              "id": "446-static",
-              "nome": "007 - Static",
+              "id": "003 - any",
+              "nome": "003 - any",
+              "tempo": 9
+            },
+            {
+              "id": "004 - union types",
+              "nome": "004 - union types",
               "tempo": 5
             },
             {
-              "id": "448-interfaces",
-              "nome": "001 - Entendendo interfaces",
+              "id": "005 - void",
+              "nome": "005 - void",
+              "tempo": 5
+            },
+            {
+              "id": "006 - never",
+              "nome": "006 - never",
+              "tempo": 10
+            },
+            {
+              "id": "007 - aliases",
+              "nome": "007 - aliases",
+              "tempo": 10
+            },
+            {
+              "id": "008 - string literal types",
+              "nome": "008 - string literal types",
+              "tempo": 10
+            },
+            {
+              "id": "009 - optional",
+              "nome": "009 - optional",
+              "tempo": 10
+            },
+            {
+              "id": "010 - enum",
+              "nome": "010 - enum",
+              "tempo": 10
+            }
+          ]
+        },
+        {
+          "secao": "003 - classes",
+          "aulas": [
+            {
+              "id": "001 - class",
+              "nome": "001 - class",
+              "tempo": 7
+            },
+            {
+              "id": "002 - métodos",
+              "nome": "002 - métodos",
+              "tempo": 9
+            },
+            {
+              "id": "003 - modificadores de acesso",
+              "nome": "003 - modificadores de acesso",
+              "tempo": 8
+            },
+            {
+              "id": "004 - modificadores de acesso [ private ]",
+              "nome": "004 - modificadores de acesso [ private ]",
+              "tempo": 5
+            },
+            {
+              "id": "005 - herança",
+              "nome": "005 - herança",
+              "tempo": 6
+            },
+            {
+              "id": "006 - getters e setters",
+              "nome": "006 - getters e setters",
+              "tempo": 6
+            },
+            {
+              "id": "007 - abstract",
+              "nome": "007 - abstract",
+              "tempo": 6
+            },
+            {
+              "id": "008 - static",
+              "nome": "008 - static",
+              "tempo": 6
+            },
+            {
+              "id": "009 - readonly",
+              "nome": "009 - readonly",
               "tempo": 6
             }
           ]
         },
+
+
+
+        
         {
           "secao": "Namespaces e Compilador",
           "aulas": [
@@ -653,6 +711,7 @@
         }
       ]
     },
+
     "Modulo-Angular": {
       "meta": {
         "label": "Angular"
